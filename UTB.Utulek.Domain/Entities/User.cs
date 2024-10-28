@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using UTB.Utulek.Domain.Entities.Interfaces;
-using UTB.Utulek.Domain.Entities.Enums;
 
 namespace UTB.Utulek.Domain.Entities
 {
@@ -13,7 +13,7 @@ namespace UTB.Utulek.Domain.Entities
         [Required]
         [EmailAddress]
         public string Email { get; set; }
-        
+
         public string PhoneNumber { get; set; }
 
         [Required]
@@ -23,6 +23,9 @@ namespace UTB.Utulek.Domain.Entities
 
         public string LastName { get; set; }
 
-        public UserRole UserRole { get; set; }
+        public int UserRoleId { get; set; } // Добавлено
+
+        public UserRole UserRole { get; set; } // Изменено для доступа к роли
+        public ICollection<AdoptionApplication> AdoptionApplications { get; set; }
     }
 }

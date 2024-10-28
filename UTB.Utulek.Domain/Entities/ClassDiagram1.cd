@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UTB.Utulek.Domain.Entities.AdoptionApplication">
+    <Position X="4.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAABAAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\AdoptionApplication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UTB.Utulek.Domain.Entities.AdoptionStatus">
+    <Position X="11.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\AdoptionStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UTB.Utulek.Domain.Entities.Animal">
+    <Position X="13.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEQgAAAAAgAACAAEAAAAQAAAAAAAAAAAAEAAIAAAA=</HashCode>
+      <FileName>Entities\Animal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UTB.Utulek.Domain.Entities.ApplicationStatus">
+    <Position X="7" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ApplicationStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UTB.Utulek.Domain.Entities.Entity&lt;TKey&gt;" Collapsed="true">
+    <Position X="10.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Entity.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UTB.Utulek.Domain.Entities.User">
+    <Position X="16" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAEAAACAAAAAAAAAAQAAAAAAAAAgAAQAAAAAAAAg=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UTB.Utulek.Domain.Entities.UserRole">
+    <Position X="9.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Entities\UserRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

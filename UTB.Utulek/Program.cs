@@ -1,15 +1,22 @@
+using Microsoft.EntityFrameworkCore;
+using UTB.Utulek.Infrastructure.Database;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Добавьте строку подключения из appsettings.json
+builder.Services.AddDbContext<UtulekDbContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("MySql"),
+        new MySqlServerVersion(new Version(9, 1, 0)))); // Убедитесь, что версия соответствует вашей MySQL
+
+// Добавьте службы контроллеров с представлениями
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Настройка HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -20,6 +27,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// Настройка маршрутов
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

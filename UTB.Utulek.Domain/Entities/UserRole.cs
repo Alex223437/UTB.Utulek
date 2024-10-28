@@ -1,6 +1,12 @@
-namespace UTB.Utulek.Domain.Entities;
+using System.Collections.Generic;
+using UTB.Utulek.Domain.Entities.Interfaces;
 
-public class UserRole : Entity<int>
+namespace UTB.Utulek.Domain.Entities
 {
-    public string RoleName { get; set; } // Название роли
+    public class UserRole : Entity<int>
+    {
+        public string RoleName { get; set; }
+
+        public ICollection<User> Users { get; set; }
+    }
 }

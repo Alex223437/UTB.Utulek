@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using UTB.Utulek.Domain.Entities.Interfaces;
 using UTB.Utulek.Domain.Entities.Enums;
 
@@ -26,6 +26,8 @@ namespace UTB.Utulek.Domain.Entities
 
         public AdoptionStatus AdoptionStatus { get; set; }
 
-        public int? AdopterId { get; set; } 
+        public int? AdopterId { get; set; }
+
+        public ICollection<AdoptionApplication> AdoptionApplications { get; set; }
     }
 }
