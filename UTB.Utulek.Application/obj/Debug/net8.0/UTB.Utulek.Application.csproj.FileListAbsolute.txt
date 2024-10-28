@@ -1,0 +1,17 @@
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/bin/Debug/net8.0/UTB.Utulek.Application.deps.json
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/bin/Debug/net8.0/UTB.Utulek.Application.dll
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/bin/Debug/net8.0/UTB.Utulek.Application.pdb
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/bin/Debug/net8.0/UTB.Utulek.Domain.dll
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/bin/Debug/net8.0/UTB.Utulek.Infrastructure.dll
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/bin/Debug/net8.0/UTB.Utulek.Domain.pdb
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/bin/Debug/net8.0/UTB.Utulek.Infrastructure.pdb
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/obj/Debug/net8.0/UTB.Utulek.Application.csproj.AssemblyReference.cache
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/obj/Debug/net8.0/UTB.Utulek.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/obj/Debug/net8.0/UTB.Utulek.Application.AssemblyInfoInputs.cache
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/obj/Debug/net8.0/UTB.Utulek.Application.AssemblyInfo.cs
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/obj/Debug/net8.0/UTB.Utulek.Application.csproj.CoreCompileInputs.cache
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/obj/Debug/net8.0/UTB.Utul.DF82FD3D.Up2Date
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/obj/Debug/net8.0/UTB.Utulek.Application.dll
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/obj/Debug/net8.0/refint/UTB.Utulek.Application.dll
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/obj/Debug/net8.0/UTB.Utulek.Application.pdb
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/obj/Debug/net8.0/ref/UTB.Utulek.Application.dll

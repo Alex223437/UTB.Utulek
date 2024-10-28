@@ -1,0 +1,15 @@
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/bin/Debug/net8.0/UTB.Utulek.Infrastructure.deps.json
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/bin/Debug/net8.0/UTB.Utulek.Infrastructure.dll
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/bin/Debug/net8.0/UTB.Utulek.Infrastructure.pdb
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/bin/Debug/net8.0/UTB.Utulek.Domain.dll
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/bin/Debug/net8.0/UTB.Utulek.Domain.pdb
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/obj/Debug/net8.0/UTB.Utulek.Infrastructure.csproj.AssemblyReference.cache
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/obj/Debug/net8.0/UTB.Utulek.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/obj/Debug/net8.0/UTB.Utulek.Infrastructure.AssemblyInfoInputs.cache
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/obj/Debug/net8.0/UTB.Utulek.Infrastructure.AssemblyInfo.cs
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/obj/Debug/net8.0/UTB.Utulek.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/obj/Debug/net8.0/UTB.Utul.22656349.Up2Date
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/obj/Debug/net8.0/UTB.Utulek.Infrastructure.dll
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/obj/Debug/net8.0/refint/UTB.Utulek.Infrastructure.dll
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/obj/Debug/net8.0/UTB.Utulek.Infrastructure.pdb
+/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/obj/Debug/net8.0/ref/UTB.Utulek.Infrastructure.dll
