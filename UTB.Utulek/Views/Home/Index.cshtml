@@ -1,8 +1,55 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model dynamic
+
+@{
+    ViewData["Title"] = "Vítejte v UTB Utulek";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4">Vítejte v UTB Utulek!</h1>
+        <p class="lead">Útočiště pro zvířata s možností virtuálního osvojení</p>
+    </div>
+    
+    <section class="mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>O nás</h2>
+                <p>Jsme tým, který se snaží zlepšit život bezdomovcům, pomáháme jim najít milující majitele. U nás můžete provést virtuální osvojení a pomáhat zvířatům i na dálku.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="~/images/shelter_welcome.jpg" class="img-fluid rounded" alt="Útočiště">
+            </div>
+        </div>
+    </section>
+
+
+    <section class="mt-5">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <a href="@Url.Action("Index", "Animal")" class="btn btn-primary btn-lg">
+                    <i class="fas fa-paw"></i> Prohlédnout zvířata
+                </a>
+                <p>Seznamte se s našimi zvířaty, která jsou k osvojení.</p>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("Create", "AdoptionApp")" class="btn btn-success btn-lg">
+                    <i class="fas fa-heart"></i> Podat žádost o osvojení
+                </a>
+                <p>Vyplňte formulář žádosti o osvojení a staňte se virtuálním majitelem.</p>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("Support", "Home")" class="btn btn-info btn-lg">
+                    <i class="fas fa-hands-helping"></i> Podpořte nás
+                </a>
+                <p>Zjistěte, jak nás můžete podpořit.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="mt-5 text-center">
+        <h2>Pomozte nám změnit život zvířat!</h2>
+        <p>Každý váš čin může změnit život zvířat k lepšímu. Podpořte nás nebo zvažte možnost osvojení jednoho z našich mazlíčků.</p>
+    </section>
 </div>

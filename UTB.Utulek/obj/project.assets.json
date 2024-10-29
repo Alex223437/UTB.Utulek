@@ -2322,46 +2322,38 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\izakh\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/aliaksei/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GIT\\Utulek\\UTB.Utulek\\UTB.Utulek.csproj",
+      "projectUniqueName": "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek/UTB.Utulek.csproj",
       "projectName": "UTB.Utulek",
-      "projectPath": "D:\\GIT\\Utulek\\UTB.Utulek\\UTB.Utulek.csproj",
-      "packagesPath": "C:\\Users\\izakh\\.nuget\\packages\\",
-      "outputPath": "D:\\GIT\\Utulek\\UTB.Utulek\\obj\\",
+      "projectPath": "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek/UTB.Utulek.csproj",
+      "packagesPath": "/Users/aliaksei/.nuget/packages/",
+      "outputPath": "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\izakh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/aliaksei/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\GIT\\Utulek\\UTB.Utulek.Application\\UTB.Utulek.Application.csproj": {
-              "projectPath": "D:\\GIT\\Utulek\\UTB.Utulek.Application\\UTB.Utulek.Application.csproj"
+            "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/UTB.Utulek.Application.csproj": {
+              "projectPath": "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/UTB.Utulek.Application.csproj"
             },
-            "D:\\GIT\\Utulek\\UTB.Utulek.Domain\\UTB.Utulek.Domain.csproj": {
-              "projectPath": "D:\\GIT\\Utulek\\UTB.Utulek.Domain\\UTB.Utulek.Domain.csproj"
+            "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Domain/UTB.Utulek.Domain.csproj": {
+              "projectPath": "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Domain/UTB.Utulek.Domain.csproj"
             },
-            "D:\\GIT\\Utulek\\UTB.Utulek.Infrastructure\\UTB.Utulek.Infrastructure.csproj": {
-              "projectPath": "D:\\GIT\\Utulek\\UTB.Utulek.Infrastructure\\UTB.Utulek.Infrastructure.csproj"
+            "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/UTB.Utulek.Infrastructure.csproj": {
+              "projectPath": "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/UTB.Utulek.Infrastructure.csproj"
             }
           }
         }
@@ -2407,7 +2399,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/Users/aliaksei/.dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
