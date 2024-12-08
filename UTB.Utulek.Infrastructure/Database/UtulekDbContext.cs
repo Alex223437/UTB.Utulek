@@ -1,84 +1,114 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using UTB.Utulek.Domain.Entities;
 
 namespace UTB.Utulek.Infrastructure.Database
 {
-    public class UtulekDbContext : DbContext
+    public class UtulekDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
     {
         public UtulekDbContext(DbContextOptions<UtulekDbContext> options)
             : base(options)
         {
         }
 
-        // DbSet для каждой сущности
+        // DbSet для сущностей
         public DbSet<Animal> Animals { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<AdoptionApplication> AdoptionApplications { get; set; }
-        public DbSet<AdoptionStatus> AdoptionStatuses { get; set; }
-        public DbSet<UserRole> UserRoles { get; set; }
-        public DbSet<ApplicationStatus> ApplicationStatuses { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<VolunteerSchedule> VolunteerSchedules { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Указываем первичные ключи
-            modelBuilder.Entity<Animal>()
-                .HasKey(a => a.Id);
+            // Конфигурация сущностей
+            ConfigureUser(modelBuilder);
+            ConfigureAnimal(modelBuilder);
+            ConfigureAdoptionApplication(modelBuilder);
+            ConfigureMessage(modelBuilder);
+            ConfigureVolunteerSchedule(modelBuilder);
+        }
 
+        private void ConfigureUser(ModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<User>()
                 .HasKey(u => u.Id);
 
+            // Настройка enum UserRole как строки
+            modelBuilder.Entity<User>()
+                .Property(u => u.Role)
+                .HasConversion<string>();
+        }
+
+        private void ConfigureAnimal(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Animal>()
+                .HasKey(a => a.Id);
+
+            // Настройка enum AdoptionStatus как строки
+            modelBuilder.Entity<Animal>()
+                .Property(a => a.AdoptionStatus)
+                .HasConversion<string>();
+        }
+
+        private void ConfigureAdoptionApplication(ModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<AdoptionApplication>()
                 .HasKey(aa => aa.Id);
 
-            modelBuilder.Entity<AdoptionStatus>()
-                .HasKey(ads => ads.Id);
-
-            modelBuilder.Entity<UserRole>()
-                .HasKey(ur => ur.Id);
-
-            modelBuilder.Entity<ApplicationStatus>()
-                .HasKey(aps => aps.Id);
-
-            // Настройка связей
-
-            // 1. Связь между User и AdoptionApplication (One-to-Many)
+            // Связь с User
             modelBuilder.Entity<AdoptionApplication>()
-                .HasOne(aa => aa.User) // Свойство в AdoptionApplication, ссылающееся на User
-                .WithMany(u => u.AdoptionApplications) // Коллекция заявок у User
-                .HasForeignKey(aa => aa.UserId) // Внешний ключ в AdoptionApplication
-                .OnDelete(DeleteBehavior.Cascade); // Опционально, задает каскадное удаление
+                .HasOne(aa => aa.User)
+                .WithMany(u => u.AdoptionApplications)
+                .HasForeignKey(aa => aa.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-            // 2. Связь между Animal и AdoptionApplication (One-to-Many)
+            // Связь с Animal
             modelBuilder.Entity<AdoptionApplication>()
-                .HasOne(aa => aa.Animal) // Свойство в AdoptionApplication, ссылающееся на Animal
-                .WithMany(a => a.AdoptionApplications) // Коллекция заявок у Animal
+                .HasOne(aa => aa.Animal)
+                .WithMany(a => a.AdoptionApplications)
                 .HasForeignKey(aa => aa.AnimalId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // 3. Связь между User и UserRole (Many-to-One)
-            modelBuilder.Entity<User>()
-                .HasOne(u => u.UserRole) // Свойство в User, ссылающееся на UserRole
-                .WithMany(ur => ur.Users) // Коллекция пользователей у роли
-                .HasForeignKey(u => u.UserRoleId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // 4. Связь между AdoptionStatus и AdoptionApplication (One-to-Many)
+            // Настройка enum ApplicationStatus как строки
             modelBuilder.Entity<AdoptionApplication>()
-                .HasOne(aa => aa.AdoptionStatus) // Свойство в AdoptionApplication, ссылающееся на AdoptionStatus
-                .WithMany(ads => ads.AdoptionApplications) // Коллекция заявок у статуса
-                .HasForeignKey(aa => aa.AdoptionStatusId)
+                .Property(aa => aa.Status)
+                .HasConversion<string>();
+        }
+
+        private void ConfigureMessage(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Message>()
+                .HasKey(m => m.Id);
+
+            // Связь с User (Sender)
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.Sender)
+                .WithMany()
+                .HasForeignKey(m => m.SenderId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // 5. Связь между ApplicationStatus и AdoptionApplication (One-to-Many)
-            modelBuilder.Entity<AdoptionApplication>()
-                .HasOne(aa => aa.ApplicationStatus) // Свойство в AdoptionApplication, ссылающееся на ApplicationStatus
-                .WithMany(aps => aps.AdoptionApplications) // Коллекция заявок у статуса
-                .HasForeignKey(aa => aa.ApplicationStatusId)
+            // Связь с User (Receiver)
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.Receiver)
+                .WithMany()
+                .HasForeignKey(m => m.ReceiverId)
                 .OnDelete(DeleteBehavior.Restrict);
+        }
 
-            // Здесь можно добавить любые дополнительные конфигурации
+        private void ConfigureVolunteerSchedule(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<VolunteerSchedule>()
+                .HasKey(vs => vs.Id);
+
+            // Связь с User (Volunteer)
+            modelBuilder.Entity<VolunteerSchedule>()
+                .HasOne(vs => vs.Volunteer)
+                .WithMany()
+                .HasForeignKey(vs => vs.VolunteerId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

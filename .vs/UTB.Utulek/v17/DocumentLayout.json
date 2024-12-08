@@ -1,0 +1,181 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GIT\\Utulek\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BC40808A-52A1-4C7A-B5B6-E1ADA5C48489}|UTB.Utulek.Infrastructure\\UTB.Utulek.Infrastructure.csproj|d:\\git\\utulek\\utb.utulek.infrastructure\\database\\utulekdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC40808A-52A1-4C7A-B5B6-E1ADA5C48489}|UTB.Utulek.Infrastructure\\UTB.Utulek.Infrastructure.csproj|solutionrelative:utb.utulek.infrastructure\\database\\utulekdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05EBA86A-43A6-439B-A3BB-A6CC78C4BCA6}|UTB.Utulek\\UTB.Utulek.csproj|d:\\git\\utulek\\utb.utulek\\views\\animal\\animals.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{05EBA86A-43A6-439B-A3BB-A6CC78C4BCA6}|UTB.Utulek\\UTB.Utulek.csproj|solutionrelative:utb.utulek\\views\\animal\\animals.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA02C935-23E1-43BE-B4BE-35CED2AC1DC7}|UTB.Utulek.Domain\\UTB.Utulek.Domain.csproj|d:\\git\\utulek\\utb.utulek.domain\\entities\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA02C935-23E1-43BE-B4BE-35CED2AC1DC7}|UTB.Utulek.Domain\\UTB.Utulek.Domain.csproj|solutionrelative:utb.utulek.domain\\entities\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}|UTB.Utulek.Presentation\\UTB.Utulek.Presentation.csproj|d:\\git\\utulek\\utb.utulek.presentation\\volunteerschedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}|UTB.Utulek.Presentation\\UTB.Utulek.Presentation.csproj|solutionrelative:utb.utulek.presentation\\volunteerschedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA02C935-23E1-43BE-B4BE-35CED2AC1DC7}|UTB.Utulek.Domain\\UTB.Utulek.Domain.csproj|d:\\git\\utulek\\utb.utulek.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA02C935-23E1-43BE-B4BE-35CED2AC1DC7}|UTB.Utulek.Domain\\UTB.Utulek.Domain.csproj|solutionrelative:utb.utulek.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}|UTB.Utulek.Presentation\\UTB.Utulek.Presentation.csproj|d:\\git\\utulek\\utb.utulek.presentation\\adoptionapplicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}|UTB.Utulek.Presentation\\UTB.Utulek.Presentation.csproj|solutionrelative:utb.utulek.presentation\\adoptionapplicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}|UTB.Utulek.Presentation\\UTB.Utulek.Presentation.csproj|d:\\git\\utulek\\utb.utulek.presentation\\animalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}|UTB.Utulek.Presentation\\UTB.Utulek.Presentation.csproj|solutionrelative:utb.utulek.presentation\\animalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}|UTB.Utulek.Presentation\\UTB.Utulek.Presentation.csproj|d:\\git\\utulek\\utb.utulek.presentation\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}|UTB.Utulek.Presentation\\UTB.Utulek.Presentation.csproj|solutionrelative:utb.utulek.presentation\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}|UTB.Utulek.Presentation\\UTB.Utulek.Presentation.csproj|d:\\git\\utulek\\utb.utulek.presentation\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}|UTB.Utulek.Presentation\\UTB.Utulek.Presentation.csproj|solutionrelative:utb.utulek.presentation\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05EBA86A-43A6-439B-A3BB-A6CC78C4BCA6}|UTB.Utulek\\UTB.Utulek.csproj|d:\\git\\utulek\\utb.utulek\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05EBA86A-43A6-439B-A3BB-A6CC78C4BCA6}|UTB.Utulek\\UTB.Utulek.csproj|solutionrelative:utb.utulek\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Animal.cs",
+              "DocumentMoniker": "D:\\GIT\\Utulek\\UTB.Utulek.Domain\\Entities\\Animal.cs",
+              "RelativeDocumentMoniker": "UTB.Utulek.Domain\\Entities\\Animal.cs",
+              "ToolTip": "D:\\GIT\\Utulek\\UTB.Utulek.Domain\\Entities\\Animal.cs",
+              "RelativeToolTip": "UTB.Utulek.Domain\\Entities\\Animal.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T18:14:02.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Animals.cshtml",
+              "DocumentMoniker": "D:\\GIT\\Utulek\\UTB.Utulek\\Views\\Animal\\Animals.cshtml",
+              "RelativeDocumentMoniker": "UTB.Utulek\\Views\\Animal\\Animals.cshtml",
+              "ToolTip": "D:\\GIT\\Utulek\\UTB.Utulek\\Views\\Animal\\Animals.cshtml",
+              "RelativeToolTip": "UTB.Utulek\\Views\\Animal\\Animals.cshtml",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAkwB8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-08T18:13:31.691Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\GIT\\Utulek\\UTB.Utulek.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "UTB.Utulek.Domain\\Entities\\User.cs",
+              "ToolTip": "D:\\GIT\\Utulek\\UTB.Utulek.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "UTB.Utulek.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T18:06:43.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UtulekDbContext.cs",
+              "DocumentMoniker": "D:\\GIT\\Utulek\\UTB.Utulek.Infrastructure\\Database\\UtulekDbContext.cs",
+              "RelativeDocumentMoniker": "UTB.Utulek.Infrastructure\\Database\\UtulekDbContext.cs",
+              "ToolTip": "D:\\GIT\\Utulek\\UTB.Utulek.Infrastructure\\Database\\UtulekDbContext.cs",
+              "RelativeToolTip": "UTB.Utulek.Infrastructure\\Database\\UtulekDbContext.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T18:06:40.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdoptionApplicationController.cs",
+              "DocumentMoniker": "D:\\GIT\\Utulek\\UTB.Utulek.Presentation\\AdoptionApplicationController.cs",
+              "RelativeDocumentMoniker": "UTB.Utulek.Presentation\\AdoptionApplicationController.cs",
+              "ToolTip": "D:\\GIT\\Utulek\\UTB.Utulek.Presentation\\AdoptionApplicationController.cs",
+              "RelativeToolTip": "UTB.Utulek.Presentation\\AdoptionApplicationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T18:06:37.078Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AnimalController.cs",
+              "DocumentMoniker": "D:\\GIT\\Utulek\\UTB.Utulek.Presentation\\AnimalController.cs",
+              "RelativeDocumentMoniker": "UTB.Utulek.Presentation\\AnimalController.cs",
+              "ToolTip": "D:\\GIT\\Utulek\\UTB.Utulek.Presentation\\AnimalController.cs",
+              "RelativeToolTip": "UTB.Utulek.Presentation\\AnimalController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T18:06:36.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MessageController.cs",
+              "DocumentMoniker": "D:\\GIT\\Utulek\\UTB.Utulek.Presentation\\MessageController.cs",
+              "RelativeDocumentMoniker": "UTB.Utulek.Presentation\\MessageController.cs",
+              "ToolTip": "D:\\GIT\\Utulek\\UTB.Utulek.Presentation\\MessageController.cs",
+              "RelativeToolTip": "UTB.Utulek.Presentation\\MessageController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T18:06:35.504Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VolunteerScheduleController.cs",
+              "DocumentMoniker": "D:\\GIT\\Utulek\\UTB.Utulek.Presentation\\VolunteerScheduleController.cs",
+              "RelativeDocumentMoniker": "UTB.Utulek.Presentation\\VolunteerScheduleController.cs",
+              "ToolTip": "D:\\GIT\\Utulek\\UTB.Utulek.Presentation\\VolunteerScheduleController.cs",
+              "RelativeToolTip": "UTB.Utulek.Presentation\\VolunteerScheduleController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAYwCwAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T18:06:33.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\GIT\\Utulek\\UTB.Utulek.Presentation\\UserController.cs",
+              "RelativeDocumentMoniker": "UTB.Utulek.Presentation\\UserController.cs",
+              "ToolTip": "D:\\GIT\\Utulek\\UTB.Utulek.Presentation\\UserController.cs",
+              "RelativeToolTip": "UTB.Utulek.Presentation\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T18:06:33.815Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GIT\\Utulek\\UTB.Utulek\\Program.cs",
+              "RelativeDocumentMoniker": "UTB.Utulek\\Program.cs",
+              "ToolTip": "D:\\GIT\\Utulek\\UTB.Utulek\\Program.cs",
+              "RelativeToolTip": "UTB.Utulek\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T18:04:12.055Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

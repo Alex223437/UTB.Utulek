@@ -1,31 +1,28 @@
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using UTB.Utulek.Domain.Entities.Interfaces;
+using Microsoft.AspNetCore.Identity;
 
 namespace UTB.Utulek.Domain.Entities
 {
-    public class User : Entity<int>, IUser<int>
+    public class User : IdentityUser<Guid>
     {
-        [Required]
-        [MaxLength(50)]
-        public string UserName { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Surname { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+        public string City { get; set; } = string.Empty;
+        public string ZIP { get; set; } = string.Empty;
+        public UserRole Role { get; set; } = UserRole.User;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; }
+        // Навигационное свойство
+        public ICollection<AdoptionApplication> AdoptionApplications { get; set; } = new List<AdoptionApplication>();
+    }
 
-        public string PhoneNumber { get; set; }
-
-        [Required]
-        public string PasswordHash { get; set; }
-
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-
-        public int UserRoleId { get; set; } // Добавлено
-
-        public UserRole UserRole { get; set; } // Изменено для доступа к роли
-        public ICollection<AdoptionApplication> AdoptionApplications { get; set; }
+    public enum UserRole
+    {
+        User,
+        Volunteer,
+        Admin
     }
 }

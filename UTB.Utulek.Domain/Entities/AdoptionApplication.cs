@@ -1,16 +1,25 @@
-using UTB.Utulek.Domain.Entities.Interfaces;
-using UTB.Utulek.Domain.Entities;
+using System;
 
-public class AdoptionApplication : Entity<int>, IEntity<int>
+namespace UTB.Utulek.Domain.Entities
 {
-    public int AnimalId { get; set; }
-    public int UserId { get; set; }
-    public DateTime ApplicationDate { get; set; }
-    public int AdoptionStatusId { get; set; } 
-    public int ApplicationStatusId { get; set; } 
+    public class AdoptionApplication
+    {
+        public Guid Id { get; set; }
+        public Guid UserId { get; set; }
+        public Guid AnimalId { get; set; }
+        public ApplicationStatus Status { get; set; } = ApplicationStatus.New;
+        public DateTime ApplicationDate { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-    public User User { get; set; }
-    public Animal Animal { get; set; }
-    public AdoptionStatus AdoptionStatus { get; set; } 
-    public ApplicationStatus ApplicationStatus { get; set; } 
+        // Навигационные свойства
+        public User? User { get; set; }
+        public Animal? Animal { get; set; }
+    }
+
+    public enum ApplicationStatus
+    {
+        New,
+        Approved,
+        Rejected
+    }
 }

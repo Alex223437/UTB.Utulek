@@ -1,11 +1,19 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using UTB.Utulek.Domain.Entities;
 using UTB.Utulek.Infrastructure.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Конфигурация для DbContext с MySQL
 builder.Services.AddDbContext<UtulekDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("MySql"),
-        new MySqlServerVersion(new Version(9, 1, 0)))); 
+        new MySqlServerVersion(new Version(9, 1, 0))));
+
+// Настройка Identity
+builder.Services.AddIdentity<User, IdentityRole<Guid>>()
+    .AddEntityFrameworkStores<UtulekDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.AddControllersWithViews();
 
@@ -22,6 +30,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();  // Добавить аутентификацию
 app.UseAuthorization();
 
 app.MapControllerRoute(
