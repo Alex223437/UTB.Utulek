@@ -1,55 +1,37 @@
 ﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model dynamic
+@model UTB.Utulek.Domain.Entities.Animal
 
 @{
-    ViewData["Title"] = "Vítejte v UTB Utulek";
+ViewData["Title"] = "Animal Shelter - Home";
 }
 
-<div class="container mt-5">
-    <div class="text-center">
-        <h1 class="display-4">Vítejte v UTB Utulek!</h1>
-        <p class="lead">Útočiště pro zvířata s možností virtuálního osvojení</p>
+
+<main class="container my-5 pb-2">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <p class="text-secondary">Best animal shelter in Czech Republic</p>
+            <h1 class="fw-bold display-4">Give <span style="color:#635959">HOME</span> and LOVE<br>to those who need it so much</h1>
+            <p class="mt-3 text-muted">
+                Join our mission, choose a pet and take the first step towards a new friend right now!
+            </p>
+            <a asp-area="" asp-controller="Animals" asp-action="Index" class="btn btn-light btn-lg mt-3 text-white home__button" style="background-color: #635959;">Adopt virtually now!</a>
+        </div>
+        
+        <div class="col-md-6 text-center">
+            @if (Model != null)
+            {
+            <a asp-controller="Animals" asp-action="Details" asp-route-id="@Model.Id" class="text-decoration-none text-black">
+                <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid" style="height: 500px; object-fit: cover; width: 100%; border-radius: 10px" />
+                <p class="mt-3 fw-bold">@Model.Name, @Model.Age years, Our love</p>
+            </a>
+            }
+            else
+            {
+            <div class="bg-secondary d-flex justify-content-center align-items-center" style="height: 300px; width: 100%;">
+                <span class="text-white">No Animal Available</span>
+            </div>
+            }
+        </div>
     </div>
-    
-    <section class="mt-4">
-        <div class="row">
-            <div class="col-md-6">
-                <h2>O nás</h2>
-                <p>Jsme tým, který se snaží zlepšit život bezdomovcům, pomáháme jim najít milující majitele. U nás můžete provést virtuální osvojení a pomáhat zvířatům i na dálku.</p>
-            </div>
-            <div class="col-md-6">
-                <img src="~/images/shelter_welcome.jpg" class="img-fluid rounded" alt="Útočiště">
-            </div>
-        </div>
-    </section>
-
-
-    <section class="mt-5">
-        <div class="row text-center">
-            <div class="col-md-4">
-                <a href="@Url.Action("Index", "Animal")" class="btn btn-primary btn-lg">
-                    <i class="fas fa-paw"></i> Prohlédnout zvířata
-                </a>
-                <p>Seznamte se s našimi zvířaty, která jsou k osvojení.</p>
-            </div>
-            <div class="col-md-4">
-                <a href="@Url.Action("Create", "AdoptionApp")" class="btn btn-success btn-lg">
-                    <i class="fas fa-heart"></i> Podat žádost o osvojení
-                </a>
-                <p>Vyplňte formulář žádosti o osvojení a staňte se virtuálním majitelem.</p>
-            </div>
-            <div class="col-md-4">
-                <a href="@Url.Action("Support", "Home")" class="btn btn-info btn-lg">
-                    <i class="fas fa-hands-helping"></i> Podpořte nás
-                </a>
-                <p>Zjistěte, jak nás můžete podpořit.</p>
-            </div>
-        </div>
-    </section>
-    
-    <section class="mt-5 text-center">
-        <h2>Pomozte nám změnit život zvířat!</h2>
-        <p>Každý váš čin může změnit život zvířat k lepšímu. Podpořte nás nebo zvažte možnost osvojení jednoho z našich mazlíčků.</p>
-    </section>
-</div>
+</main>

@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UTB.Utulek.Infrastructure",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UTB.Utulek.Application", "UTB.Utulek.Application\UTB.Utulek.Application.csproj", "{3258DBEF-E73F-4F33-9D44-5AD7E764F97B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTB.Utulek.Presentation", "UTB.Utulek.Presentation\UTB.Utulek.Presentation.csproj", "{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{3258DBEF-E73F-4F33-9D44-5AD7E764F97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3258DBEF-E73F-4F33-9D44-5AD7E764F97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3258DBEF-E73F-4F33-9D44-5AD7E764F97B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0938243-A8FE-4B2A-AEDB-C36D8F0E4577}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 html {
   font-size: 14px;
 }
@@ -19,4 +22,56 @@ html {
 
 body {
   margin-bottom: 60px;
+  overflow-x: hidden;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.footer__logo {
+  height: 80px;
+  width: auto;
+  border-radius: 15px;
+}
+
+.pagination .page-item .page-link {
+  color: #635959; /* Цвет текста */
+  border: 1px solid #ddd; /* Цвет границы */
+  transition: all 0.2s ease-in-out; /* Анимация */
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #635959; /* Цвет фона активной страницы */
+  border-color: #635959; /* Цвет границы */
+  color: #fff; /* Цвет текста */
+  font-weight: bold; /* Жирный текст */
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: #e5e5e5; /* Цвет фона при наведении */
+  color: #635959; /* Цвет текста при наведении */
+  border-color: #635959; /* Цвет границы при наведении */
+}
+
+@media (max-width: 768px) {
+  .home__button {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .footer__logo {
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer__txt {
+    line-height: normal;
+    gap: 5px;
+  }
+  .footer__txt-container {
+    flex-direction: column;
+  }
 }

@@ -1,0 +1,34 @@
+@model UTB.Utulek.Domain.Entities.Donation
+
+@{
+ViewData["Title"] = "Make a Donation";
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+
+    <div class="container my-4 pb-2">
+        <h2 class="text-center mb-4">Make a Donation</h2>
+
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+            <div class="container p-4 shadow rounded text-white" style="max-width: 600px; background-color: #635959">
+                <!-- Сумма пожертвования -->
+                <div class="mb-3">
+                    <label asp-for="Amount">Donation Amount</label>
+                    <input asp-for="Amount" type="number" step="0.01" class="form-control" required placeholder="Enter the amount you wish to donate" />
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+                <!-- Сообщение -->
+                <div class="mb-3">
+                    <label asp-for="Message">Message (Optional)</label>
+                    <textarea asp-for="Message" class="form-control" rows="4" placeholder="Add a message for your donation (optional)"></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+                <!-- Кнопка отправки -->
+                <button type="submit" class="btn btn-light w-100">Donate Now</button>
+            </div>
+        </form>
+    </div>
+
+</div>

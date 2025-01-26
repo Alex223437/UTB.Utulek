@@ -1,0 +1,73 @@
+<div class="container my-4 pb-2">
+    <!-- Сортировка -->
+    @{
+    var currentSort = ViewData["CurrentSort"] as string;
+    }
+    <div class="d-flex justify-content-start mb-3">
+        <form method="get" class="d-flex align-items-center">
+            <label class="me-2 text-nowrap">Sort by:</label>
+            <select name="sortOrder" class="form-select" onchange="this.form.submit()">
+                <option value="" selected="@(string.IsNullOrEmpty(currentSort) ? "selected" : null)">Default</option>
+                <option value="name" selected="@(currentSort == "name" ? "selected" : null)">Name</option>
+                <option value="age" selected="@(currentSort == "age" ? "selected" : null)">Age</option>
+                <option value="date" selected="@(currentSort == "date" ? "selected" : null)">Date Added (Oldest)</option>
+                <option value="date_desc" selected="@(currentSort == "date_desc" ? "selected" : null)">Date Added (Newest)</option>
+            </select>
+        </form>
+    </div>
+
+    <!-- Сетка животных -->
+    <div class="row g-4">
+        @foreach (var animal in Model)
+        {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card border-0 text-center">
+                @if (!string.IsNullOrEmpty(animal.ImageUrl) &&
+                System.IO.File.Exists(System.IO.Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", animal.ImageUrl.TrimStart('/'))))
+                {
+                <img src="@animal.ImageUrl" alt="@animal.Name" class="card-img-top" style="height: 300px; object-fit: cover;" />
+                }
+                else
+                {
+                <div class="d-flex justify-content-center align-items-center" style="height: 300px; width: 100%; background-color: #635959">
+                    <span class="text-white">No Image</span>
+                </div>
+                }
+                <div class="mt-2">
+                    <h5 class="fw-bold">@animal.Name, @animal.Age y.o</h5>
+                </div>
+                <div class="d-grid gap-2 my-2">
+                    <a asp-action="Details" asp-route-id="@animal.Id" class="btn btn-dark" style="background-color: #635959;">Show Details</a>
+                    <a asp-controller="Adoption" asp-action="Apply" asp-route-animalId="@animal.Id" class="btn btn-outline-dark" style="border-color: #635959">Adopt</a>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+
+    <nav aria-label="Page navigation" class="mt-4">
+        <ul class="pagination justify-content-center">
+            <!-- Кнопка "Previous" -->
+            <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                <a class="page-link" asp-action="Index" asp-route-page="@(Math.Max((int)ViewBag.CurrentPage - 1, 1))" asp-route-sortOrder="@ViewData["CurrentSort"]" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+            <!-- Нумерация страниц -->
+            @for (int i = 1; i <= (int)ViewBag.TotalPages; i++)
+            {
+            <li class="page-item @(i == (int)ViewBag.CurrentPage ? "active" : "")">
+                <a class="page-link" asp-action="Index" asp-route-page="@i" asp-route-sortOrder="@ViewData["CurrentSort"]">@i</a>
+            </li>
+            }
+
+            <!-- Кнопка "Next" -->
+            <li class="page-item @(ViewBag.CurrentPage == (int)ViewBag.TotalPages ? "disabled" : "")">
+                <a class="page-link" asp-action="Index" asp-route-page="@(Math.Min((int)ViewBag.CurrentPage + 1, (int)ViewBag.TotalPages))" asp-route-sortOrder="@ViewData["CurrentSort"]" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

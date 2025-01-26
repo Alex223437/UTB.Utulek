@@ -1,0 +1,44 @@
+@model IEnumerable<UTB.Utulek.Domain.Entities.AdoptionApplication>
+
+@{
+ViewBag.Title = "Manage Adoption Applications";
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Manage Adoption Applications</h2>
+<div class="table-responsive">
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Applicant</th>
+        <th>Animal</th>
+        <th>Other Animals</th>
+        <th>Yard Space</th>
+        <th>Comment</th>
+        <th>Status</th>
+        <th>Application Date</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var application in Model)
+    {
+        <tr>
+            <td>@application.User?.Name (@application.User?.Email)</td>
+            <td>@application.Animal?.Name</td>
+            <td>@(application.HasOtherAnimals ? "Yes" : "No")</td>
+            <td>@(application.HasYardSpace ? "Yes" : "No")</td>
+            <td>@application.UserComment</td>
+            <td>@application.Status</td>
+            <td>@application.ApplicationDate.ToShortDateString()</td>
+            <td>
+                <a asp-action="EditApplication" asp-route-id="@application.Id" class="btn btn-warning">Edit</a>
+                <form asp-action="DeleteApplication" asp-route-id="@application.Id" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+</div>

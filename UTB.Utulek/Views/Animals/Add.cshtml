@@ -1,0 +1,92 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model UTB.Utulek.Domain.Entities.Animal
+
+@{
+ViewBag.Title = "Add Animal";
+Layout = "_Layout";
+}
+
+<h2 class="mb-4">Add New Animal</h2>
+
+<div class="container my-4 pb-2">
+    <form asp-action="Add" method="post" enctype="multipart/form-data">
+        <!-- Имя -->
+        <div class="form-group mb-3">
+            <label asp-for="Name">Name</label>
+            <input asp-for="Name" class="form-control" placeholder="Enter animal name" />
+        </div>
+
+        <!-- Описание -->
+        <div class="form-group mb-3">
+            <label asp-for="Description">Description</label>
+            <textarea asp-for="Description" class="form-control" rows="3" placeholder="Add a description"></textarea>
+        </div>
+
+        <!-- Вид -->
+        <div class="form-group mb-3">
+            <label asp-for="Species">Species</label>
+            <input asp-for="Species" class="form-control" placeholder="Enter species (e.g., Dog, Cat)" />
+        </div>
+
+        <!-- Порода -->
+        <div class="form-group mb-3">
+            <label asp-for="Breed">Breed</label>
+            <input asp-for="Breed" class="form-control" placeholder="Enter breed (e.g., Labrador)" />
+        </div>
+
+        <!-- Возраст -->
+        <div class="form-group mb-3">
+            <label asp-for="Age">Age</label>
+            <input asp-for="Age" type="number" class="form-control" placeholder="Enter age in years" />
+        </div>
+
+        <!-- Пол -->
+        <div class="form-group mb-3">
+            <label asp-for="Gender">Gender</label>
+            <select asp-for="Gender" class="form-select">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+        <!-- Статус здоровья -->
+        <div class="form-group mb-3">
+            <label asp-for="HealthStatus">Health Status</label>
+            <select asp-for="HealthStatus" class="form-select">
+                <option value="">Select Health Status</option>
+                <option value="Healthy">Healthy</option>
+                <option value="Injured">Injured</option>
+                <option value="Sick">Sick</option>
+                <option value="Recovering">Recovering</option>
+                <option value="Disabled">Disabled</option>
+            </select>
+        </div>
+
+        <!-- Доступность для усыновления -->
+        <div class="form-group mb-3 form-check">
+            <input asp-for="IsAvailable" class="form-check-input" />
+            <label asp-for="IsAvailable" class="form-check-label">Is Available for Adoption?</label>
+        </div>
+
+        <!-- Статус усыновления -->
+        <div class="form-group mb-3">
+            <label asp-for="AdoptionStatus">Adoption Status</label>
+            <select asp-for="AdoptionStatus" class="form-select">
+                <option value="Available">Available</option>
+                <option value="InProgress">In Progress</option>
+                <option value="Adopted">Adopted</option>
+            </select>
+        </div>
+
+        <!-- Загрузка изображения -->
+        <div class="form-group mb-3">
+            <label>Upload Photo</label>
+            <input type="file" name="ImageFile" class="form-control" />
+        </div>
+
+        <!-- Кнопка отправки -->
+        <button type="submit" class="btn btn-primary mt-3">Add Animal</button>
+    </form>
+</div>

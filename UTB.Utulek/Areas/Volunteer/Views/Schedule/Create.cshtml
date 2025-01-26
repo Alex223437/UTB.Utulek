@@ -1,0 +1,19 @@
+@model UTB.Utulek.Domain.Entities.VolunteerSchedule
+
+@{
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Task</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label for="Date">Date</label>
+        <input asp-for="Date" type="date" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="TaskDescription">Task Description</label>
+        <textarea asp-for="TaskDescription" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

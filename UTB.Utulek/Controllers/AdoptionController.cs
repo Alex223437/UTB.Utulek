@@ -1,43 +1,88 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using UTB.Utulek.Domain.Entities;
 using UTB.Utulek.Infrastructure.Database;
 
-namespace UTB.Utulek.Controllers
+namespace UTB.Utulek.Presentation.Controllers
 {
+    [Authorize] // Только авторизованные пользователи
     public class AdoptionController : Controller
     {
         private readonly UtulekDbContext _context;
+        private readonly UserManager<User> _userManager;
 
-        public AdoptionController(UtulekDbContext context)
+        public AdoptionController(UtulekDbContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
-        // GET: Adoption/Create
-        public IActionResult Create()
+        // GET: Adoption Form
+        [HttpGet]
+        public async Task<IActionResult> Apply(Guid animalId)
         {
-            ViewData["AnimalId"] = new SelectList(_context.Animals, "Id", "Name");
-            return View();
-        }
-
-        // POST: Adoption/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(AdoptionApplication application)
-        {
-            if (ModelState.IsValid)
+            var animal = await _context.Animals.FindAsync(animalId);
+            if (animal == null)
             {
-                _context.Add(application);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Animal"); // Redirect to the animal list page after submission
+                return NotFound();
+            }
+            
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                Console.WriteLine("User is NULL in _userManager.");
+                return RedirectToAction("Login", "Account");
+            }
+            
+            ViewBag.UserEmail = user.Email;
+
+            var model = new AdoptionApplication
+            {
+                AnimalId = animal.Id,
+                Animal = animal
+            };
+
+            return View(model); // Переход к форме
+        }
+
+        // POST: Adoption Application Submission
+        [HttpPost]
+        public async Task<IActionResult> Apply(AdoptionApplication model)
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user == null)
+            {
+                return RedirectToAction("Login", "Account");
             }
 
-            ViewData["AnimalId"] = new SelectList(_context.Animals, "Id", "Name", application.AnimalId);
-            return View(application);
+            if (ModelState.IsValid)
+            {
+                // Создаём новую заявку
+                model.Id = Guid.NewGuid();
+                model.UserId = user.Id;
+                model.Status = ApplicationStatus.New;
+                model.ApplicationDate = DateTime.UtcNow;
+                model.UpdatedAt = DateTime.UtcNow;
+
+                _context.AdoptionApplications.Add(model);
+
+                // Меняем статус животного на InProgress
+                var animal = await _context.Animals.FindAsync(model.AnimalId);
+                if (animal != null)
+                {
+                    animal.AdoptionStatus = AdoptionStatus.InProgress;
+                    _context.Animals.Update(animal);
+                }
+
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction("Index", "Animals"); // Возвращаем на список животных
+            }
+
+            return View(model);
         }
     }
 }

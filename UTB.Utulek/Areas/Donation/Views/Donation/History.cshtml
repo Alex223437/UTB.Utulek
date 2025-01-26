@@ -1,0 +1,31 @@
+@model IEnumerable<UTB.Utulek.Domain.Entities.Donation>
+
+@{
+    ViewData["Title"] = "Donation History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Donation History</h2>
+<div class="table-responsive">
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Donor</th>
+        <th>Amount</th>
+        <th>Message</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var donation in Model)
+    {
+        <tr>
+            <td>@donation.User?.Name (@donation.User?.Email)</td>
+            <td>@donation.Amount.ToString("C")</td>
+            <td>@donation.Message</td>
+            <td>@donation.Date.ToShortDateString()</td>
+        </tr>
+    }
+    </tbody>
+</table>
+</div>

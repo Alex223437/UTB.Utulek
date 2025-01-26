@@ -1,0 +1,93 @@
+@model UTB.Utulek.Domain.Entities.Animal
+
+@{
+ViewData["Title"] = @Model.Name;
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Левая часть: Фото и слайдер -->
+        <div class="col-md-6 text-center" >
+            <!-- Главное изображение -->
+            <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid mb-3" style="height: 500px; object-fit: cover; border-radius: 10px" />
+
+            <!-- Дополнительные изображения (заглушка для примера) -->
+            <div class="d-flex justify-content-center">
+                <a asp-controller="Adoption" asp-action="Apply" asp-route-animalId="@Model.Id" class="btn btn-dark mt-3" style="background-color: #635959; border-radius: 10px;">
+                    Adopt
+                </a>
+            </div>
+            
+            
+        </div>
+
+        <!-- Правая часть: Информация о животном -->
+        <div class="col-md-6">
+            <!-- Заголовок -->
+            <h2 class="fw-bold mb-3">@Model.Name</h2>
+
+            <!-- Возраст -->
+            <p>
+                <strong>Age:</strong> @Model.Age years
+            </p>
+
+            <!-- Пол -->
+            <p>
+                <strong>Gender:</strong> @Model.Gender
+            </p>
+
+            <!-- Вид и порода -->
+            <p>
+                <strong>Species:</strong> @Model.Species
+                <br />
+                <strong>Breed:</strong> @Model.Breed
+            </p>
+
+            <!-- Статус здоровья -->
+            <p>
+                <strong>Health Status:</strong> @Model.HealthStatus
+            </p>
+
+            <!-- Доступность для усыновления -->
+            <p>
+                <strong>Available for Adoption:</strong>
+                @if (Model.IsAvailable)
+                {
+                <span class="text-success fw-bold">Yes</span>
+                }
+                else
+                {
+                <span class="text-danger fw-bold">No</span>
+                }
+            </p>
+
+            <!-- Статус усыновления -->
+            <p>
+                <strong>Adoption Status:</strong>
+                @switch (Model.AdoptionStatus)
+                {
+                case UTB.Utulek.Domain.Entities.AdoptionStatus.Available:
+                <span class="badge bg-success">Available</span>
+                break;
+                case UTB.Utulek.Domain.Entities.AdoptionStatus.InProgress:
+                <span class="badge bg-warning text-dark">In Progress</span>
+                break;
+                case UTB.Utulek.Domain.Entities.AdoptionStatus.Adopted:
+                <span class="badge bg-secondary">Adopted</span>
+                break;
+                }
+            </p>
+
+            <!-- Дата прибытия -->
+            <p>
+                <strong>Arrival Date:</strong> @Model.ArrivalDate.ToShortDateString()
+            </p>
+
+            <!-- Описание -->
+            <p class="mt-4">
+                <strong>Description:</strong><br />
+                <span>@Model.Description</span>
+            </p>
+        </div>
+    </div>
+</div>

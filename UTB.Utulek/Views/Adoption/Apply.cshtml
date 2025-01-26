@@ -1,0 +1,48 @@
+@model UTB.Utulek.Domain.Entities.AdoptionApplication
+
+@{
+ViewData["Title"] = "Adoption Form";
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container my-4 pb-2" style="min-height: 80vh;">
+    <h2 class="text-center mb-4">Adoption Form</h2>
+
+    <form asp-action="Apply" method="post">
+        <input asp-for="AnimalId" type="hidden" />
+        <div class="container p-4 shadow rounded text-white" style="max-width: 600px; background-color: #635959">
+            <!-- Имя -->
+            <div class="mb-3">
+                <label>Name</label>
+                <input value="@User.Identity.Name" class="form-control" readonly />
+            </div>
+            <!-- Email -->
+            <div class="mb-3">
+                <label>Email</label>
+                <input value="@ViewBag.UserEmail" class="form-control" readonly />
+            </div>
+            <!-- Животное -->
+            <div class="mb-3">
+                <label>Animal</label>
+                <input value="@Model.Animal?.Name" class="form-control" readonly />
+            </div>
+            <!-- Есть ли другие животные -->
+            <div class="form-check mb-3">
+                <input asp-for="HasOtherAnimals" class="form-check-input" id="otherAnimals" />
+                <label for="otherAnimals" class="form-check-label">Do you have other animals?</label>
+            </div>
+            <!-- Есть ли огороженное пространство -->
+            <div class="form-check mb-3">
+                <input asp-for="HasYardSpace" class="form-check-input" id="yardSpace" />
+                <label for="yardSpace" class="form-check-label">Do you have a yard/fenced space?</label>
+            </div>
+            <!-- Комментарий -->
+            <div class="mb-3">
+                <label for="UserComment">Your Comment</label>
+                <textarea asp-for="UserComment" class="form-control" rows="4" placeholder="Add any additional information here"></textarea>
+            </div>
+            <!-- Кнопка отправки -->
+            <button type="submit" class="btn btn-light w-100">Apply an Application</button>
+        </div>
+    </form>
+</div>

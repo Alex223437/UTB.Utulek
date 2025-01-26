@@ -11,7 +11,12 @@ namespace UTB.Utulek.Domain.Entities
         public DateTime ApplicationDate { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-        // ������������� ��������
+        // Новые поля
+        public bool HasOtherAnimals { get; set; } // Есть ли другие животные
+        public bool HasYardSpace { get; set; } // Есть ли двор/ограждённое пространство
+        public string? UserComment { get; set; } // Комментарий пользователя
+
+        // Навигационные свойства
         public User? User { get; set; }
         public Animal? Animal { get; set; }
     }

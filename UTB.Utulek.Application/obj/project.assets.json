@@ -2910,43 +2910,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\izakh\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/aliaksei/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GIT\\Utulek\\UTB.Utulek.Application\\UTB.Utulek.Application.csproj",
+      "projectUniqueName": "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/UTB.Utulek.Application.csproj",
       "projectName": "UTB.Utulek.Application",
-      "projectPath": "D:\\GIT\\Utulek\\UTB.Utulek.Application\\UTB.Utulek.Application.csproj",
-      "packagesPath": "C:\\Users\\izakh\\.nuget\\packages\\",
-      "outputPath": "D:\\GIT\\Utulek\\UTB.Utulek.Application\\obj\\",
+      "projectPath": "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/UTB.Utulek.Application.csproj",
+      "packagesPath": "/Users/aliaksei/.nuget/packages/",
+      "outputPath": "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Application/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\izakh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/aliaksei/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\GIT\\Utulek\\UTB.Utulek.Domain\\UTB.Utulek.Domain.csproj": {
-              "projectPath": "D:\\GIT\\Utulek\\UTB.Utulek.Domain\\UTB.Utulek.Domain.csproj"
+            "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Domain/UTB.Utulek.Domain.csproj": {
+              "projectPath": "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Domain/UTB.Utulek.Domain.csproj"
             },
-            "D:\\GIT\\Utulek\\UTB.Utulek.Infrastructure\\UTB.Utulek.Infrastructure.csproj": {
-              "projectPath": "D:\\GIT\\Utulek\\UTB.Utulek.Infrastructure\\UTB.Utulek.Infrastructure.csproj"
+            "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/UTB.Utulek.Infrastructure.csproj": {
+              "projectPath": "/Users/aliaksei/RiderProjects/UTB.Utulek/UTB.Utulek.Infrastructure/UTB.Utulek.Infrastructure.csproj"
             }
           }
         }
@@ -2981,7 +2973,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -2990,7 +2982,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Microsoft.AspNet.Identity.Core 2.2.4\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'Microsoft.AspNet.Identity.Core 2.2.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.Identity.Core",
       "targetGraphs": [
         "net8.0"

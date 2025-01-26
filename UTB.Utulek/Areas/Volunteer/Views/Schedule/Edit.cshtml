@@ -1,0 +1,56 @@
+@model UTB.Utulek.Domain.Entities.VolunteerSchedule
+
+@{
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Task</h2>
+
+<!-- <form asp-action="Edit" method="post">
+    <input asp-for="Id" type="hidden" />
+   
+    <div class="mb-3">
+        <label for="Date">Date</label>
+        <input asp-for="Date" type="date" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="TaskDescription">Task Description</label>
+        <textarea asp-for="TaskDescription" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form> -->
+<form asp-action="Edit" method="post">
+    <input asp-for="Id" type="hidden" />
+    <input asp-for="VolunteerId" type="hidden" />
+    <div class="mb-3">
+        <label for="Date">Date</label>
+        <input asp-for="Date" type="date" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="TaskDescription">Task Description</label>
+        <textarea asp-for="TaskDescription" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="IsCompleted">Task Completed</label>
+        <input asp-for="IsCompleted" type="checkbox" class="form-check-input" />
+    </div>
+    <div class="mb-3">
+        <label for="CompletionReport">Completion Report</label>
+        <textarea asp-for="CompletionReport" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}

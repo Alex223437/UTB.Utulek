@@ -12,7 +12,7 @@ namespace UTB.Utulek.Domain.Entities
         public string Breed { get; set; } = string.Empty;
         public int Age { get; set; }
         public Gender Gender { get; set; }
-        public string HealthStatus { get; set; } = "Healthy";
+        public HealthStatus HealthStatus { get; set; } = HealthStatus.Healthy;
         public bool IsAvailable { get; set; } = true;
         public DateTime ArrivalDate { get; set; } = DateTime.UtcNow;
         public AdoptionStatus AdoptionStatus { get; set; } = AdoptionStatus.Available;
@@ -20,7 +20,7 @@ namespace UTB.Utulek.Domain.Entities
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-        // ������������� ��������
+        // ������������� ��������
         public ICollection<AdoptionApplication> AdoptionApplications { get; set; } = new List<AdoptionApplication>();
     }
 
@@ -35,5 +35,14 @@ namespace UTB.Utulek.Domain.Entities
         Available,
         InProgress,
         Adopted
+    }
+
+    public enum HealthStatus
+    {
+        Healthy,             // Здоровое
+        Injured,             // Травмированное
+        Sick,                // Больное
+        Recovering,          // Выздоравливающее
+        Disabled,            // С ограниченными возможностям
     }
 }

@@ -1,0 +1,17 @@
+@model UTB.Utulek.Domain.Entities.VolunteerSchedule
+
+@{
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Task Details</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h4 class="card-title">Date: @Model.Date.ToShortDateString()</h4>
+        <p class="card-text"><strong>Task Description:</strong></p>
+        <p class="card-text">@Model.TaskDescription</p>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-primary mt-3">Back to List</a>

@@ -1,0 +1,55 @@
+@model IEnumerable<UTB.Utulek.Domain.Entities.User>
+
+@{
+    ViewBag.Title = "Manage Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container my-4 pb-2">
+    <h2>Manage Users</h2>
+    <!-- Обертка для горизонтальной прокрутки -->
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>ZIP</th>
+                <th>Role</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Name</td>
+                    <td>@user.Surname</td>
+                    <td>@user.Email</td>
+                    <td>@user.PhoneNumber</td>
+                    <td>@user.Address</td>
+                    <td>@user.City</td>
+                    <td>@user.ZIP</td>
+                    <td>@user.Role</td>
+                    <td>@user.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@user.UpdatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>
+                        <a asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-warning">Edit</a>
+                        <form asp-action="DeleteUser" asp-route-id="@user.Id" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

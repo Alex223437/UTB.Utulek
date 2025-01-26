@@ -17,12 +17,39 @@ namespace UTB.Utulek.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("ProductVersion", "8.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("AdoptionApplication", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,195 +57,411 @@ namespace UTB.Utulek.Infrastructure.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AdoptionStatusId")
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("longtext");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("AnimalId")
-                        .HasColumnType("int");
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("longtext");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("longtext");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("UTB.Utulek.Domain.Entities.AdoptionApplication", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("AnimalId")
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime>("ApplicationDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("ApplicationStatusId")
-                        .HasColumnType("int");
+                    b.Property<bool>("HasOtherAnimals")
+                        .HasColumnType("tinyint(1)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<bool>("HasYardSpace")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("UserComment")
+                        .HasColumnType("longtext");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AdoptionStatusId");
-
                     b.HasIndex("AnimalId");
-
-                    b.HasIndex("ApplicationStatusId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("AdoptionApplications");
                 });
 
-            modelBuilder.Entity("AdoptionStatus", b =>
+            modelBuilder.Entity("UTB.Utulek.Domain.Entities.Animal", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("char(36)");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("StatusName")
+                    b.Property<string>("AdoptionStatus")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("AdoptionStatuses");
-                });
-
-            modelBuilder.Entity("UTB.Utulek.Domain.Entities.Animal", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("AdopterId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AdoptionStatusId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Age")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("ArrivalDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Breed")
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Gender")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HealthStatus")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Species")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
 
-                    b.HasIndex("AdoptionStatusId");
+                    b.HasKey("Id");
 
                     b.ToTable("Animals");
                 });
 
-            modelBuilder.Entity("UTB.Utulek.Domain.Entities.ApplicationStatus", b =>
+            modelBuilder.Entity("UTB.Utulek.Domain.Entities.Donation", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("char(36)");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(65,30)");
 
-                    b.Property<string>("StatusName")
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Message")
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("ApplicationStatuses");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Donations");
                 });
 
             modelBuilder.Entity("UTB.Utulek.Domain.Entities.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("PasswordHash")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
-                    b.Property<int>("UserRoleId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserRoleId");
-
-                    b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("UTB.Utulek.Domain.Entities.UserRole", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("RoleName")
+                    b.Property<string>("ZIP")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserRoles");
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex");
+
+                    b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("AdoptionApplication", b =>
+            modelBuilder.Entity("UTB.Utulek.Domain.Entities.VolunteerSchedule", b =>
                 {
-                    b.HasOne("AdoptionStatus", "AdoptionStatus")
-                        .WithMany("AdoptionApplications")
-                        .HasForeignKey("AdoptionStatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("CompletionReport")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("TaskDescription")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid>("VolunteerId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("VolunteerId");
+
+                    b.ToTable("VolunteerSchedules");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+                {
+                    b.HasOne("UTB.Utulek.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+                {
+                    b.HasOne("UTB.Utulek.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("UTB.Utulek.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+                {
+                    b.HasOne("UTB.Utulek.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("UTB.Utulek.Domain.Entities.AdoptionApplication", b =>
+                {
                     b.HasOne("UTB.Utulek.Domain.Entities.Animal", "Animal")
                         .WithMany("AdoptionApplications")
                         .HasForeignKey("AnimalId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("UTB.Utulek.Domain.Entities.ApplicationStatus", "ApplicationStatus")
-                        .WithMany("AdoptionApplications")
-                        .HasForeignKey("ApplicationStatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("UTB.Utulek.Domain.Entities.User", "User")
@@ -227,40 +470,31 @@ namespace UTB.Utulek.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AdoptionStatus");
-
                     b.Navigation("Animal");
-
-                    b.Navigation("ApplicationStatus");
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("UTB.Utulek.Domain.Entities.Animal", b =>
+            modelBuilder.Entity("UTB.Utulek.Domain.Entities.Donation", b =>
                 {
-                    b.HasOne("AdoptionStatus", "AdoptionStatus")
+                    b.HasOne("UTB.Utulek.Domain.Entities.User", "User")
                         .WithMany()
-                        .HasForeignKey("AdoptionStatusId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AdoptionStatus");
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("UTB.Utulek.Domain.Entities.User", b =>
+            modelBuilder.Entity("UTB.Utulek.Domain.Entities.VolunteerSchedule", b =>
                 {
-                    b.HasOne("UTB.Utulek.Domain.Entities.UserRole", "UserRole")
-                        .WithMany("Users")
-                        .HasForeignKey("UserRoleId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.HasOne("UTB.Utulek.Domain.Entities.User", "Volunteer")
+                        .WithMany()
+                        .HasForeignKey("VolunteerId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("UserRole");
-                });
-
-            modelBuilder.Entity("AdoptionStatus", b =>
-                {
-                    b.Navigation("AdoptionApplications");
+                    b.Navigation("Volunteer");
                 });
 
             modelBuilder.Entity("UTB.Utulek.Domain.Entities.Animal", b =>
@@ -268,19 +502,9 @@ namespace UTB.Utulek.Infrastructure.Migrations
                     b.Navigation("AdoptionApplications");
                 });
 
-            modelBuilder.Entity("UTB.Utulek.Domain.Entities.ApplicationStatus", b =>
-                {
-                    b.Navigation("AdoptionApplications");
-                });
-
             modelBuilder.Entity("UTB.Utulek.Domain.Entities.User", b =>
                 {
                     b.Navigation("AdoptionApplications");
-                });
-
-            modelBuilder.Entity("UTB.Utulek.Domain.Entities.UserRole", b =>
-                {
-                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

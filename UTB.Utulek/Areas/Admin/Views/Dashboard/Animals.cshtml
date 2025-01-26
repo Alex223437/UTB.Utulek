@@ -1,0 +1,51 @@
+@model IEnumerable<UTB.Utulek.Domain.Entities.Animal>
+
+@{
+ViewBag.Title = "Manage Animals";
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container my-4 pb-2">
+    <h2>Manage Animals</h2>
+    <div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Species</th>
+            <th>Breed</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Health Status</th>
+            <th>Adoption Status</th>
+            <th>Is Available</th>
+            <th>Arrival Date</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var animal in Model)
+        {
+            <tr>
+                <td>@animal.Name</td>
+                <td>@animal.Species</td>
+                <td>@animal.Breed</td>
+                <td>@animal.Age</td>
+                <td>@animal.Gender</td>
+                <td>@animal.HealthStatus</td>
+                <td>@animal.AdoptionStatus</td>
+                <td>@(animal.IsAvailable ? "Yes" : "No")</td>
+                <td>@animal.ArrivalDate.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-action="EditAnimal" asp-route-id="@animal.Id" class="btn btn-warning">Edit</a>
+                    <form asp-action="DeleteAnimal" asp-route-id="@animal.Id" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    </div>
+</div>

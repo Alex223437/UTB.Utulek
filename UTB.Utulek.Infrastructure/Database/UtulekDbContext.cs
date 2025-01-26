@@ -16,8 +16,10 @@ namespace UTB.Utulek.Infrastructure.Database
         public DbSet<Animal> Animals { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<AdoptionApplication> AdoptionApplications { get; set; }
-        public DbSet<Message> Messages { get; set; }
+        
         public DbSet<VolunteerSchedule> VolunteerSchedules { get; set; }
+        
+        public DbSet<Donation> Donations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,7 +29,6 @@ namespace UTB.Utulek.Infrastructure.Database
             ConfigureUser(modelBuilder);
             ConfigureAnimal(modelBuilder);
             ConfigureAdoptionApplication(modelBuilder);
-            ConfigureMessage(modelBuilder);
             ConfigureVolunteerSchedule(modelBuilder);
         }
 
@@ -77,27 +78,7 @@ namespace UTB.Utulek.Infrastructure.Database
                 .Property(aa => aa.Status)
                 .HasConversion<string>();
         }
-
-        private void ConfigureMessage(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Message>()
-                .HasKey(m => m.Id);
-
-            // Связь с User (Sender)
-            modelBuilder.Entity<Message>()
-                .HasOne(m => m.Sender)
-                .WithMany()
-                .HasForeignKey(m => m.SenderId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // Связь с User (Receiver)
-            modelBuilder.Entity<Message>()
-                .HasOne(m => m.Receiver)
-                .WithMany()
-                .HasForeignKey(m => m.ReceiverId)
-                .OnDelete(DeleteBehavior.Restrict);
-        }
-
+        
         private void ConfigureVolunteerSchedule(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<VolunteerSchedule>()

@@ -1,0 +1,19 @@
+@{
+    ViewBag.Title = "Admin Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Admin Dashboard</h2>
+<ul>
+    <li><a asp-action="Users">Manage Users</a></li>
+    <li><a asp-action="Animals">Manage Animals</a></li>
+    <li><a asp-action="AdoptionApplications">Manage Adoption Applications</a></li>
+    <li><a asp-area="Volunteer" asp-controller="Schedule" asp-action="Index">Manage Volunteer Schedule</a></li>
+    <li>
+        <a asp-area="" asp-controller="Animals" asp-action="Add" class="btn btn-success">
+            Add New Animal
+        </a>
+    </li>
+</ul>
+
